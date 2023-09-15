@@ -6,14 +6,18 @@ To get started please visist [cypher.skylerx.ir](https://cypher.skylerx.ir)
 
 Cypher SDK to encrypt data in client-side JavaScript applications
 
+## Info
+
+the difference between this SDK and the other one is that this one won't save to the audit log making it more friendly to use in your nextjs client components. This way your client secret doesn't get leaked to the public upon making a request.
+
 ## Install
 
-`npm i @skylerx/cypher` or `yarn add @skylerx/cypher`
+`npm i @skylerx/cypher-client` or `yarn add @skylerx/cypher-client`
 
 ## Import
 
 ```js
-import Cypher from "@skylerx/cypher";
+import Cypher from "@skylerx/cypher-client";
 ```
 
 ## Initialize

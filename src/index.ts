@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import crypto from "node:crypto";
-import { addToAuditLog } from "./utils/api";
 
 const CYPHER_APP_VERSION = "v1";
 const ENCRYPTION_ALGORITHM = "aes-256-cbc";
@@ -55,7 +54,6 @@ export class Cypher {
       encrypted += cipher.final("hex");
 
       const encryptedPayload = `cy:${CYPHER_APP_VERSION}:${encrypted}`;
-      addToAuditLog(this.formattedAppId, this.formattedAppSecret, "ENCRYPT");
 
       return encryptedPayload;
     } catch (err) {
@@ -73,8 +71,6 @@ export class Cypher {
       );
       let decrypted = decipher.update(encrypted, "hex", "utf-8");
       decrypted += decipher.final("utf-8");
-
-      addToAuditLog(this.formattedAppId, this.formattedAppSecret, "DECRYPT");
 
       return decrypted;
     } catch (err) {
