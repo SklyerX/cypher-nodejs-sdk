@@ -1,0 +1,23 @@
+{
+  "name": "@skylerx/cypher",
+  "version": "1.0.0",
+  "description": "A library for encryption and decryption.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon client.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "^20.6.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
