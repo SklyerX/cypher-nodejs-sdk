@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import crypto from "node:crypto";
+import crypto from "crypto";
 import { addToAuditLog } from "./utils/api";
 
 const CYPHER_APP_VERSION = "v1";
