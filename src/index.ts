@@ -33,7 +33,7 @@ export class Cypher {
       JWT_SECRET
     ) as string;
 
-    const appIdRegex = /^dvApp:v1:[a-zA-Z0-9._-]+$/i;
+    const appIdRegex = /^cyApp:v1:[a-zA-Z0-9._-]+$/i;
     const appSecretRegex = /^pss:v1:[a-zA-Z0-9._-]+$/i;
 
     if (!appIdRegex.test(appId) || !appSecretRegex.test(appSecret)) {
@@ -54,8 +54,13 @@ export class Cypher {
       let encrypted = cipher.update(plainText, "utf-8", "hex");
       encrypted += cipher.final("hex");
 
-      const encryptedPayload = `dvApp:${CYPHER_APP_VERSION}:${encrypted}`;
-      addToAuditLog(this.formattedAppId, this.formattedAppSecret, "ENCRYPT");
+      const encryptedPayload = `cyApp:${CYPHER_APP_VERSION}:${encrypted}`;
+      addToAuditLog(
+        this.formattedAppId,
+        this.formattedAppSecret,
+        "ENCRYPT",
+        Buffer.byteLength(encrypted)
+      );
 
       return encryptedPayload;
     } catch (err) {
@@ -74,7 +79,12 @@ export class Cypher {
       let decrypted = decipher.update(encrypted, "hex", "utf-8");
       decrypted += decipher.final("utf-8");
 
-      addToAuditLog(this.formattedAppId, this.formattedAppSecret, "DECRYPT");
+      addToAuditLog(
+        this.formattedAppId,
+        this.formattedAppSecret,
+        "DECRYPT",
+        Buffer.byteLength(decrypted)
+      );
 
       return decrypted;
     } catch (err) {

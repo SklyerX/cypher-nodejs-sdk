@@ -4,7 +4,8 @@ import { API_ENDPOINT } from "./constants";
 export function addToAuditLog(
   appId: string | Buffer,
   appSecret: string | Buffer,
-  eventType: string
+  eventType: string,
+  byteLength: number
 ) {
   console.log(appId.toString("hex"), appSecret.toString("hex"));
   return axios.post(
@@ -12,6 +13,7 @@ export function addToAuditLog(
     {
       SDK: "NODEJS_SDK",
       eventType,
+      byteLength,
     },
     {
       headers: {
