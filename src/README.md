@@ -8,12 +8,12 @@ Cypher SDK to encrypt data in client-side JavaScript applications
 
 ## Install
 
-`npm i @skylerx/cypher-js` or `yarn add @skylerx/cypher-js`
+`npm i @skylerx/cypher` or `yarn add @skylerx/cypher`
 
 ## Import
 
 ```js
-import Cypher from "@skylerx/cypher-js";
+import Cypher from "@skylerx/cypher";
 ```
 
 ## Initialize
