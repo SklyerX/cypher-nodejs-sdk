@@ -8,8 +8,16 @@
     "dev": "nodemon client.ts",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "crypto",
+    "encryption",
+    "decryption"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sklyerx/cypher-nodejs-sdk.git"
+  },
+  "author": "skylerx.ir",
   "license": "ISC",
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",
